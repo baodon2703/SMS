@@ -11,4 +11,16 @@
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'New Server', new_server_path %> 
+
+</br>
+</br>
+</br>
+
+<div>
+    <% if @project.servers.any? %>
+      <ol>
+        <%= render @servers %>
+      </ol>
+    <% end %>
+</div>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  serial_number: MyString
+  type: 
+  os: MyString
+  ip_address: MyString
+  application: MyString
+  project: one
+
+two:
+  name: MyString
+  serial_number: MyString
+  type: 
+  os: MyString
+  ip_address: MyString
+  application: MyString
+  project: two

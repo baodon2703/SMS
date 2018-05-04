@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @server.name %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @server.serial_number %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @server.type %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @server.os %>
+</p>
+
+<p>
+  <strong>Ip address:</strong>
+  <%= @server.ip_address %>
+</p>
+
+<p>
+  <strong>Application:</strong>
+  <%= @server.application %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @server.project.name %>
+</p>
+
+<%= link_to 'Edit', edit_server_path(@server) %> |
+<%= link_to 'Back', servers_path %>

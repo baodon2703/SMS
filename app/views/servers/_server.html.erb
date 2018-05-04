@@ -1,0 +1,6 @@
+<li>
+  <span class="content"><%= server.name %></span>
+  <%= link_to 'Show', server %>
+  <%= link_to 'Edit', edit_server_path(server) %>
+  <%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %>
+</li>
