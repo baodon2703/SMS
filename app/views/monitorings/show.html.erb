@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @monitoring.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @monitoring.content %>
+</p>
+
+<p>
+  <strong>Warning:</strong>
+  <%= @monitoring.warning %>
+</p>
+
+<p>
+  <strong>Critical:</strong>
+  <%= @monitoring.critical %>
+</p>
+
+<p>
+  <strong>Failure flow:</strong>
+  <%= @monitoring.failure_flow %>
+</p>
+
+<p>
+  <strong>Interval:</strong>
+  <%= @monitoring.interval %>
+</p>
+
+<p>
+  <strong>Retry num:</strong>
+  <%= @monitoring.retry_num %>
+</p>
+
+<p>
+  <strong>Timeout:</strong>
+  <%= @monitoring.timeout %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <%= @monitoring.route %>
+</p>
+
+<p>
+  <strong>Other:</strong>
+  <%= @monitoring.other %>
+</p>
+
+<p>
+  <strong>Tool:</strong>
+  <%= @monitoring.tool %>
+</p>
+
+<%= link_to 'Edit', edit_monitoring_path(@monitoring) %> |
+<%= link_to 'Back', monitorings_path %>

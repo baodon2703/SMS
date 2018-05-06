@@ -10,8 +10,7 @@
   <%= @project.user.name %>
 </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'New Server', new_server_path %> 
+<%= link_to 'Edit', edit_project_path(@project) %>
 
 </br>
 </br>
@@ -24,3 +23,5 @@
       </ol>
     <% end %>
 </div>
+
+<%= link_to 'New Server', new_server_path(:project_id => @project.id) %> 

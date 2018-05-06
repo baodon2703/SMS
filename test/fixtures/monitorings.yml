@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  content: MyString
+  warning: MyString
+  critical: MyString
+  failure_flow: MyString
+  interval: 
+  retry_num: 
+  timeout: 
+  route: MyString
+  other: MyString
+  tool: MyString
+
+two:
+  name: MyString
+  content: MyString
+  warning: MyString
+  critical: MyString
+  failure_flow: MyString
+  interval: 
+  retry_num: 
+  timeout: 
+  route: MyString
+  other: MyString
+  tool: MyString

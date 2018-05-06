@@ -10,6 +10,8 @@ class ServersController < ApplicationController
   # GET /servers/1
   # GET /servers/1.json
   def show
+    @server = Server.find(params[:id])
+    @monitorings = @server.monitorings
   end
 
   # GET /servers/new
@@ -24,7 +26,8 @@ class ServersController < ApplicationController
   # POST /servers
   # POST /servers.json
   def create
-    @server = Server.new(server_params)
+    @project = Project.find(params[:project_id])
+    @server = @project.servers.build(server_params)
 
     respond_to do |format|
       if @server.save
@@ -69,6 +72,6 @@ class ServersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
-      params.require(:server).permit(:name, :serial_number, :type, :os, :ip_address, :application, :project_id)
+      params.require(:server).permit(:name, :serial_number, :type, :os, :ip_address, :application)
     end
 end

@@ -1,0 +1,74 @@
+<%= form_with(model: monitoring, local: true) do |form| %>
+  <% if monitoring.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(monitoring.errors.count, "error") %> prohibited this monitoring from being saved:</h2>
+
+      <ul>
+      <% monitoring.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :warning %>
+    <%= form.text_field :warning %>
+  </div>
+
+  <div class="field">
+    <%= form.label :critical %>
+    <%= form.text_field :critical %>
+  </div>
+
+  <div class="field">
+    <%= form.label :failure_flow %>
+    <%= form.text_field :failure_flow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interval %>
+    <%= form.text_field :interval %>
+  </div>
+
+  <div class="field">
+    <%= form.label :retry_num %>
+    <%= form.text_field :retry_num %>
+  </div>
+
+  <div class="field">
+    <%= form.label :timeout %>
+    <%= form.text_field :timeout %>
+  </div>
+
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.text_field :route %>
+  </div>
+
+  <div class="field">
+    <%= form.label :other %>
+    <%= form.text_field :other %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tool %>
+    <%= form.text_field :tool %>
+  </div>
+  
+  <div><%= hidden_field_tag :server_id, params[:server_id] %></div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
