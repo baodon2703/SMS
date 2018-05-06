@@ -1,5 +1,6 @@
 class ServersController < ApplicationController
   before_action :set_server, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /servers
   # GET /servers.json
@@ -31,7 +32,8 @@ class ServersController < ApplicationController
 
     respond_to do |format|
       if @server.save
-        format.html { redirect_to @server, notice: 'Server was successfully created.' }
+        flash[:success] = "Server was successfully created."
+        format.html { redirect_to @server}
         format.json { render :show, status: :created, location: @server }
       else
         format.html { render :new }
@@ -43,9 +45,11 @@ class ServersController < ApplicationController
   # PATCH/PUT /servers/1
   # PATCH/PUT /servers/1.json
   def update
+    @project = current_project
     respond_to do |format|
       if @server.update(server_params)
-        format.html { redirect_to @server, notice: 'Server was successfully updated.' }
+        flash[:success] = "Server was successfully updated."
+        format.html { redirect_to @project }
         format.json { render :show, status: :ok, location: @server }
       else
         format.html { render :edit }
@@ -57,9 +61,11 @@ class ServersController < ApplicationController
   # DELETE /servers/1
   # DELETE /servers/1.json
   def destroy
+    @project = current_project
     @server.destroy
     respond_to do |format|
-      format.html { redirect_to servers_url, notice: 'Server was successfully destroyed.' }
+      flash[:success] = "Server was successfully destroy."
+      format.html { redirect_to @project}
       format.json { head :no_content }
     end
   end

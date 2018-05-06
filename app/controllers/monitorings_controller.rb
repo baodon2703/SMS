@@ -1,5 +1,6 @@
 class MonitoringsController < ApplicationController
   before_action :set_monitoring, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /monitorings
   # GET /monitorings.json
@@ -29,7 +30,8 @@ class MonitoringsController < ApplicationController
 
     respond_to do |format|
       if @monitoring.save
-        format.html { redirect_to @monitoring, notice: 'Monitoring was successfully created.' }
+        flash[:success] = "Monitoring was successfully created."
+        format.html { redirect_to @monitoring}
         format.json { render :show, status: :created, location: @monitoring }
       else
         format.html { render :new }
@@ -41,9 +43,11 @@ class MonitoringsController < ApplicationController
   # PATCH/PUT /monitorings/1
   # PATCH/PUT /monitorings/1.json
   def update
+    @server = current_server
     respond_to do |format|
       if @monitoring.update(monitoring_params)
-        format.html { redirect_to @monitoring, notice: 'Monitoring was successfully updated.' }
+        flash[:success] = "Monitoring was successfully updated."
+        format.html { redirect_to @server}
         format.json { render :show, status: :ok, location: @monitoring }
       else
         format.html { render :edit }
@@ -55,9 +59,11 @@ class MonitoringsController < ApplicationController
   # DELETE /monitorings/1
   # DELETE /monitorings/1.json
   def destroy
+    @server = current_server
     @monitoring.destroy
     respond_to do |format|
-      format.html { redirect_to monitorings_url, notice: 'Monitoring was successfully destroyed.' }
+      flash[:success] = "Monitoring was successfully destroy."
+      format.html { redirect_to }
       format.json { head :no_content }
     end
   end
@@ -66,6 +72,10 @@ class MonitoringsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_monitoring
       @monitoring = Monitoring.find(params[:id])
+    end
+
+    def current_server
+      Server.find(@monitoring.server_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

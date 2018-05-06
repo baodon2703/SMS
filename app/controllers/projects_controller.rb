@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   # GET /projects/1
@@ -31,7 +32,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         flash[:success] = "Project was successfully created."
-        format.html { redirect_to @project}
+        format.html { redirect_to projects_url}
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
@@ -46,7 +47,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update(project_params)
         flash[:success] = "Project was successfully updated."
-        format.html { redirect_to @project}
+        format.html { redirect_to projects_url}
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -60,7 +61,8 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      flash[:success] = "Project was successfully destroyed."
+      format.html { redirect_to projects_url}
       format.json { head :no_content }
     end
   end

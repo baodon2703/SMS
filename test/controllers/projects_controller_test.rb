@@ -5,10 +5,10 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     @project = projects(:project)
   end
 
-  test "should get index" do
-    get projects_url
-    assert_response :success
-  end
+  # test "should get index" do
+  #   get projects_url
+  #   assert_response :success
+  # end
 
   test "should get new" do
     get new_project_url

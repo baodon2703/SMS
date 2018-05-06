@@ -1,39 +1,24 @@
-<%= form_with(model: server, local: true) do |form| %>
-
-  <%= render 'shared/error_messages', object: server %>
-  <div class="field">
+<%= form_for(@server) do |form| %>
+    <%= render 'shared/error_messages', object: form.object %>
     <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <%= form.text_field :name, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :serial_number %>
-    <%= form.text_field :serial_number %>
-  </div>
+    <%= form.text_field :serial_number, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :type %>
-    <%= form.text_field :type %>
-  </div>
+    <%= form.text_field :type, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :os %>
-    <%= form.text_field :os %>
-  </div>
+    <%= form.text_field :os, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :ip_address %>
-    <%= form.text_field :ip_address %>
-  </div>
+    <%= form.text_field :ip_address, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :application %>
-    <%= form.text_field :application %>
-  </div>
+    <%= form.text_field :application, class: 'form-control'%>
 
-  <div><%= hidden_field_tag :project_id, params[:project_id] %></div>
+    <%= hidden_field_tag :project_id, params[:project_id] %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

@@ -1,74 +1,40 @@
-<%= form_with(model: monitoring, local: true) do |form| %>
-  <% if monitoring.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(monitoring.errors.count, "error") %> prohibited this monitoring from being saved:</h2>
+<%= form_for(@monitoring) do |form| %>
+    <%= render 'shared/error_messages', object: form.object %>
 
-      <ul>
-      <% monitoring.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <%= form.text_field :name, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
+    <%= form.text_field :content, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :warning %>
-    <%= form.text_field :warning %>
-  </div>
+    <%= form.text_field :warning, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :critical %>
-    <%= form.text_field :critical %>
-  </div>
+    <%= form.text_field :critical, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :failure_flow %>
-    <%= form.text_field :failure_flow %>
-  </div>
+    <%= form.text_field :failure_flow, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :interval %>
-    <%= form.text_field :interval %>
-  </div>
+    <%= form.text_field :interval, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :retry_num %>
-    <%= form.text_field :retry_num %>
-  </div>
+    <%= form.text_field :retry_num, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :timeout %>
-    <%= form.text_field :timeout %>
-  </div>
+    <%= form.text_field :timeout, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :route %>
-    <%= form.text_field :route %>
-  </div>
+    <%= form.text_field :route, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :other %>
-    <%= form.text_field :other %>
-  </div>
+    <%= form.text_field :other, class: 'form-control'%>
 
-  <div class="field">
     <%= form.label :tool %>
-    <%= form.text_field :tool %>
-  </div>
-  
-  <div><%= hidden_field_tag :server_id, params[:server_id] %></div>
+    <%= form.text_field :tool, class: 'form-control'%>
+    
+    <%= hidden_field_tag :server_id, params[:server_id] %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
