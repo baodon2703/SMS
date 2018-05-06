@@ -76,6 +76,10 @@ class ServersController < ApplicationController
       @server = Server.find(params[:id])
     end
 
+    def current_project
+      Project.find(@server.project_id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def server_params
       params.require(:server).permit(:name, :serial_number, :type, :os, :ip_address, :application)
