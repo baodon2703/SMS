@@ -31,7 +31,7 @@ class MonitoringsController < ApplicationController
     respond_to do |format|
       if @monitoring.save
         flash[:success] = "Monitoring was successfully created."
-        format.html { redirect_to @monitoring}
+        format.html { redirect_to @server}
         format.json { render :show, status: :created, location: @monitoring }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class MonitoringsController < ApplicationController
     @monitoring.destroy
     respond_to do |format|
       flash[:success] = "Monitoring was successfully destroy."
-      format.html { redirect_to }
+      format.html { redirect_to @server}
       format.json { head :no_content }
     end
   end

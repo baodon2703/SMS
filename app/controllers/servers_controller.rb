@@ -33,7 +33,7 @@ class ServersController < ApplicationController
     respond_to do |format|
       if @server.save
         flash[:success] = "Server was successfully created."
-        format.html { redirect_to @server}
+        format.html { redirect_to @project}
         format.json { render :show, status: :created, location: @server }
       else
         format.html { render :new }
