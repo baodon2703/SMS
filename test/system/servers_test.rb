@@ -20,7 +20,7 @@ class ServersTest < ApplicationSystemTestCase
     fill_in "Os", with: @server.os
     fill_in "Project", with: @server.project_id
     fill_in "Serial Number", with: @server.serial_number
-    fill_in "Type", with: @server.type
+    fill_in "Server type", with: @server.server_type
     click_on "Create Server"
 
     assert_text "Server was successfully created"
@@ -37,7 +37,7 @@ class ServersTest < ApplicationSystemTestCase
     fill_in "Os", with: @server.os
     fill_in "Project", with: @server.project_id
     fill_in "Serial Number", with: @server.serial_number
-    fill_in "Type", with: @server.type
+    fill_in "Server type", with: @server.server_type
     click_on "Update Server"
 
     assert_text "Server was successfully updated"

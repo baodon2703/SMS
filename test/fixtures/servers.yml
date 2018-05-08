@@ -1,7 +1,7 @@
 one:
   name: MyString
   serial_number: MyString
-  type: 
+  server_type: 
   os: MyString
   ip_address: MyString
   application: MyString
@@ -10,7 +10,7 @@ one:
 server:
   name: ServerA
   serial_number: MyString
-  type: 
+  server_type: 
   os: MyString
   ip_address: MyString
   application: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_04_112311) do
+ActiveRecord::Schema.define(version: 2018_05_07_235901) do
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2018_05_04_112311) do
   create_table "servers", force: :cascade do |t|
     t.string "name"
     t.string "serial_number"
-    t.string "type"
+    t.string "server_type"
     t.string "os"
     t.string "ip_address"
     t.string "application"
